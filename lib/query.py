@@ -34,7 +34,8 @@ def run_query(connection, query):
             print(row)
     else:
         print("Query executed successfully!")
-    
+
+    return results
     cursor.close()
 
 def test_query():
@@ -65,3 +66,4 @@ def test_query():
 
     # Close the connection
     connection.close()
+    log_query(f"{query}", results)
