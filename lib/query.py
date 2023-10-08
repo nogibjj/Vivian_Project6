@@ -34,7 +34,7 @@ def run_query(connection, query):
     return results
     cursor.close()
 
-def test_query(query):
+def test_query():
     # Database credentials
     load_dotenv()
     host = os.getenv("SERVER_HOSTNAME")
@@ -53,7 +53,8 @@ def test_query(query):
     connection = connect_to_database(host, port,user, password, database)
 
     # Run queries from the terminal
-    while True:
+        query="select city,count(city) from Bars b left join (select s.bar from Sells s where s.price >5) a on a.bar=b.name where a.bar IS NULL group by city"
+
         run_query(connection, query)
 
     # Close the connection
