@@ -1,4 +1,4 @@
-"""Query the BarBeerDrinker database from a mysql database"""
+""" Query the BarBeerDrinker database from a MySQL database"""
 import mysql.connector
 import os
 from dotenv import load_dotenv
