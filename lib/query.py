@@ -4,15 +4,12 @@ from dotenv import load_dotenv
 
 LOG_FILE = "log.md"
 
-""" Query the BarBeerDrinker database from a MySQL database"""
 def log_query(query, result="none"):
-""" adds to a query markdown file"""
     with open(LOG_FILE, "a") as file:
         file.write(f"```sql\n{query}\n```\n\n")
         file.write(f"```response from mysql database\n{result}\n```\n\n")
 
 def connect_to_database(host, port,user, password, database):
-""" Connect to the database"""
     connection = mysql.connector.connect(
         host=host,
         port=port,
@@ -23,7 +20,6 @@ def connect_to_database(host, port,user, password, database):
     return connection
 
 def run_query(connection, query):
-    """run a query"""
     cursor = connection.cursor()
     cursor.execute(query)
     
@@ -39,7 +35,6 @@ def run_query(connection, query):
     cursor.close()
 
 def test_query():
-    """main function to test the output of a query"""
     # Database credentials
     load_dotenv()
     host = os.getenv("SERVER_HOSTNAME")
