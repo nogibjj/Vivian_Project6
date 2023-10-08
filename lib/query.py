@@ -1,18 +1,18 @@
-""" Query the BarBeerDrinker database from a MySQL database"""
 import mysql.connector
 import os
 from dotenv import load_dotenv
 
 LOG_FILE = "log.md"
 
+""" Query the BarBeerDrinker database from a MySQL database"""
 def log_query(query, result="none"):
-    """adds to a query markdown file"""
+""" adds to a query markdown file"""
     with open(LOG_FILE, "a") as file:
         file.write(f"```sql\n{query}\n```\n\n")
         file.write(f"```response from mysql database\n{result}\n```\n\n")
 
 def connect_to_database(host, port,user, password, database):
-  """Connect to the database"""
+""" Connect to the database"""
     connection = mysql.connector.connect(
         host=host,
         port=port,
