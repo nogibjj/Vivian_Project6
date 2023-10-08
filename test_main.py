@@ -1,4 +1,4 @@
-from main import f
+from main import main
 
 def test_main():
-    assert f("abcd") == 4
+    assert main() == 1
