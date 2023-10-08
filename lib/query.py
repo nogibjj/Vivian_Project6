@@ -31,8 +31,9 @@ def run_query(connection, query):
     else:
         print("Query executed successfully!")
 
-    return results
     cursor.close()
+    return results
+    
 
 def test_query():
     # Database credentials
@@ -55,7 +56,7 @@ def test_query():
     # Run queries from the terminal
     query="select city,count(city) from Bars b left join (select s.bar from Sells s where s.price >5) a on a.bar=b.name where a.bar IS NULL group by city"
 
-    run_query(connection, query)
+    results=run_query(connection, query)
 
     # Close the connection
     connection.close()
