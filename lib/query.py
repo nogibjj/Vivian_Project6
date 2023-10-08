@@ -34,7 +34,7 @@ def run_query(connection, query):
     return results
     cursor.close()
 
-def test_query():
+def test_query(query):
     # Database credentials
     load_dotenv()
     host = os.getenv("SERVER_HOSTNAME")
@@ -54,9 +54,6 @@ def test_query():
 
     # Run queries from the terminal
     while True:
-        query = input("enter query:")
-        if query.lower() == 'exit':
-            break
         run_query(connection, query)
 
     # Close the connection
