@@ -27,5 +27,5 @@ all: install lint format test
 
 
 query: 
-	python main.py test_query "select city,count(city) from Bars b left join (select s.bar from Sells s where s.price >5) a on a.bar=b.name where a.bar IS NULL group by city"
+	python main.py "select city,count(city) from Bars b left join (select s.bar from Sells s where s.price >5) a on a.bar=b.name where a.bar IS NULL group by city"
 
