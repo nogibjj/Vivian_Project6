@@ -1,15 +1,13 @@
+import sys
+import argparse
+from lib.query import test_query
 
+def main():
+    if args.action == "test_query":
+        test_query(args.query)
 
-def f(s):
-    di={}
-    largest=0
-    left=0
-    for i in range(len(s)):
-        check = di[s[i]]+1 if s[i] in di else 0
-        left = max(left, check)
-        largest=max(largest,i-left+1)
-        di[s[i]]=i ## i + 1
-    return largest
+    else:
+        print(f"Unknown action: {args.action}")
 
 if __name__ == "__main__":
-    print(f("ccabdec"))
+    main()
