@@ -1,4 +1,3 @@
-import sys
 import argparse
 from lib.query import test_query
 
